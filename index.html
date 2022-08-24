@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;700&family=Roboto&family=Space+Grotesk:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="bootstrap/bootstrap.min.css" />
+    <title>Frontend Mentor | Interactive card details form</title>
+
+    <style>
+      body {
+        font-family: "Space Grotesk", sans-serif;
+      }
+      .top-section {
+        height: 350px;
+        background: url(./images/bg-main-mobile.png);
+        background-position: center;
+        background-size: cover;
+      }
+      .gray {
+        color: var(--bs-gray-300);
+      }
+      .back-img-wrapper {
+        top: 8%;
+        right: 4%;
+      }
+
+      #cdCVC {
+        top: 44%;
+        right: 15%;
+      }
+      .front-img-wrapper {
+        top: 20%;
+        left: 5%;
+      }
+      .front-img-wrapper .front-img,
+      .back-img-wrapper .back-img {
+        width: 400px;
+      }
+
+      .cardLogo {
+        width: 60px;
+        top: 10%;
+        left: 7%;
+      }
+
+      #cdNumber {
+        font-size: 1.6rem;
+        letter-spacing: 3px;
+        top: 60%;
+        left: 8.5%;
+      }
+      .alignName {
+        top: 80%;
+        left: 7%;
+      }
+
+      .cardDate {
+        top: 80%;
+        right: 7%;
+      }
+
+      form,
+      .thank-you-wrapper {
+        max-width: 500px;
+      }
+      .thank-you-section h1 {
+        font-size: 3.5rem;
+      }
+
+      @media screen and (min-width: 992px) {
+        .top-section {
+          height: auto;
+        }
+        .back-img-wrapper {
+          width: 447px;
+          top: 52% !important;
+          left: 20% !important;
+        }
+        .front-img-wrapper {
+          top: 8% !important;
+          left: 10% !important;
+        }
+        .front-img-wrapper .front-img,
+        .back-img-wrapper .back-img {
+          width: 447px;
+        }
+        .cardLogo {
+          width: 84px;
+        }
+        #cdNumber {
+          font-size: 1.8rem;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-dark">
+    <main>
+      <div class="container py-5">
+        <div class="row position-relative">
+          <div class="col-12 col-lg-4 g-0 p-5 top-section">
+            <div class="back-img-wrapper position-absolute">
+              <img
+                src="./images/bg-card-back.png"
+                alt=""
+                class="shadow-lg position-relative back-img"
+              />
+              <p class="text-uppercase text-white position-absolute" id="cdCVC">
+                000
+              </p>
+            </div>
+
+            <div class="front-img-wrapper position-absolute alignFrontCard">
+              <img
+                src="./images/bg-card-front.png"
+                alt=""
+                class="position-relative shadow-lg front-img"
+              />
+              <p class="position-absolute gray lh-1" id="cdNumber">
+                0000 0000 0000 0000
+              </p>
+
+              <img
+                src="./images/card-logo.svg"
+                alt=""
+                class="position-absolute cardLogo"
+              />
+
+              <p
+                class="position-absolute gray text-uppercase alignName"
+                id="cdName"
+              >
+                jane appleseed
+              </p>
+              <p class="position-absolute gray cardDate">
+                <span id="cdMonth">00</span>/<span id="cdYear">00</span>
+              </p>
+            </div>
+          </div>
+          <div class="bg-light col-12 col-lg-8 pt-5 h-100 formInputSection">
+            <form
+              class="mx-auto mx-lg-0 px-lg-5 py-5 mt-5 mt-lg-0 w-100 w-lg-50 ms-lg-auto my-lg-5"
+              novalidate
+            >
+              <div class="row g-3">
+                <div class="col-12 input-group-lg has-validation">
+                  <label for="inputName" class="form-label text-uppercase fw-2"
+                    >cardholder name</label
+                  >
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="cardName"
+                      placeholder="e.g. Jane Appleseed"
+                      required
+                    />
+                    <div class="invalid-feedback">Can't be blank.</div>
+                  </div>
+                </div>
+                <div class="col-12 input-group-lg">
+                  <label for="inputNumber" class="form-label text-uppercase"
+                    >card number</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="cardNumber"
+                    maxlength="19"
+                    placeholder="e.g. 1234 5678 9123 0000"
+                    required
+                  />
+                  <div class="invalid-feedback">
+                    Wrong format, numbers only.
+                  </div>
+                </div>
+
+                <div class="col">
+                  <label for="inputExpDate" class="form-label text-uppercase"
+                    >exp. date (mm/yy)</label
+                  >
+                  <div class="row">
+                    <div class="col input-group-lg">
+                      <input
+                        type="number"
+                        min="1"
+                        max="12"
+                        class="form-control"
+                        id="cardExpMonth"
+                        placeholder="MM"
+                        required
+                      />
+                      <div class="invalid-feedback">Can't be blank.</div>
+                    </div>
+                    <div class="col input-group-lg">
+                      <input
+                        type="number"
+                        min="2022"
+                        max="2100"
+                        class="form-control"
+                        id="cardExpYear"
+                        placeholder="YY"
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="col input-group-lg">
+                  <label for="inputCVC" class="form-label">CVC</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="cardCVC"
+                    placeholder="e.g. 123"
+                    required
+                  />
+                  <div class="invalid-feedback">Can't be blank.</div>
+                </div>
+
+                <div class="col-12 my-5">
+                  <button type="submit" class="btn btn-lg btn-dark w-100">
+                    Confirm
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div
+            class="py-5 text-center bg-light thank-you-section py-5 col-12 col-lg-8 pt-sm-5 h-100 d-none"
+          >
+            <div
+              class="thank-you-wrapper w-100 w-lg-50 ms-lg-auto my-lg-5 mx-2 pt-5 pt-lg-0 mx-auto mx-lg-0"
+            >
+              <img src="./images/icon-complete.svg" alt="" class="mt-5" />
+
+              <h1 class="mt-5 text-uppercase">Thank you!</h1>
+              <p class="text-success mt-3 fs-3">
+                We've added your card details
+              </p>
+              <button
+                class="btn btn-lg bg-dark text-white w-100 my-5"
+                id="continue"
+              >
+                Continue
+              </button>
+            </div>
+          </div>
+          <div
+            class="d-flex justify-content-center position-absolute top-50 d-none mt-3"
+            id="spinner"
+          >
+            <div class="spinner-border fs-2" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="attribution text-white py-5 text-center">
+        Challenge by
+        <a
+          href="https://www.frontendmentor.io?ref=challenge"
+          target="_blank"
+          class="text-info"
+          >Frontend Mentor</a
+        >. Coded by <a href="#" class="text-info">Peter Junior Mendy</a>.
+      </div>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
