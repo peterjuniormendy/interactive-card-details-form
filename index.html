@@ -48,7 +48,7 @@
       }
       .front-img-wrapper .front-img,
       .back-img-wrapper .back-img {
-        width: 400px;
+        width: 350px;
       }
 
       .cardLogo {
@@ -58,10 +58,10 @@
       }
 
       #cdNumber {
-        font-size: 1.6rem;
+        font-size: 1.4rem;
         letter-spacing: 3px;
         top: 60%;
-        left: 8.5%;
+        left: 7.6%;
       }
       .alignName {
         top: 80%;
@@ -75,7 +75,7 @@
 
       form,
       .thank-you-wrapper {
-        max-width: 500px;
+        max-width: 450px;
       }
       .thank-you-section h1 {
         font-size: 3.5rem;
@@ -86,21 +86,27 @@
           height: auto;
         }
         .back-img-wrapper {
-          width: 447px;
           top: 52% !important;
           left: 20% !important;
         }
         .front-img-wrapper {
           top: 8% !important;
-          left: 10% !important;
+          left: 15% !important;
+        }
+
+        .cardLogo {
+          width: 84px;
+        }
+      }
+      @media screen and (min-width: 1023px) {
+        .back-img-wrapper {
+          width: 447px;
         }
         .front-img-wrapper .front-img,
         .back-img-wrapper .back-img {
           width: 447px;
         }
-        .cardLogo {
-          width: 84px;
-        }
+
         #cdNumber {
           font-size: 1.8rem;
         }
@@ -111,7 +117,7 @@
     <main>
       <div class="container py-5">
         <div class="row position-relative">
-          <div class="col-12 col-lg-4 g-0 p-5 top-section">
+          <div class="col-12 col-lg-4 col-xl-5 g-0 p-5 top-section">
             <div class="back-img-wrapper position-absolute">
               <img
                 src="./images/bg-card-back.png"
@@ -150,7 +156,9 @@
               </p>
             </div>
           </div>
-          <div class="bg-light col-12 col-lg-8 pt-5 h-100 formInputSection">
+          <div
+            class="bg-light col-12 col-lg-8 col-xl-7 pt-5 h-100 formInputSection"
+          >
             <form
               class="mx-auto mx-lg-0 px-lg-5 py-5 mt-5 mt-lg-0 w-100 w-lg-50 ms-lg-auto my-lg-5"
               novalidate
