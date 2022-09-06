@@ -15,17 +15,14 @@ const form = document.querySelector("form");
 const formInputs = form.querySelectorAll("input");
 const FormSubmitBtn = form.querySelector("button");
 const continueBtn = document.querySelector("#continue");
-// const inputNumber = document.querySelector("#cardNumber");
 
 // EVENT LISTENERS
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-
   if (!form.checkValidity()) {
     form.classList.add("was-validated");
     return;
   }
-
   showThankYouCard();
 });
 
